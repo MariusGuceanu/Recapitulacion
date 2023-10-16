@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio2 - Objeto Math</title>
 </head>
+
 <body>
-    <script language="javascript" src="http://185.60.40.210/dwc/Juegos.js"></script>
-    
+    <script src="http://185.60.40.210/dwc/Juegos.js"></script>
+    <script>
+        const n = 3;
+        const aPuzzle = Aleatorio(n);
+        let sHtml = "";
+        sHtml += "<table>";
+        for (arr of aPuzzle) {
+            sHtml += "<tr>";
+            for (value of arr) {
+                sHtml += `<td><img src="imagenes/n${value}.gif"></td>`;
+            }
+            sHtml += "</tr>";
+        }
+        sHtml += "</table>";
+        document.write(sHtml);
+    </script>
 </body>
+
 </html>
