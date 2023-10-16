@@ -14,15 +14,35 @@
         const aPuzzle = Aleatorio(n);
         let sHtml = "";
         sHtml += "<table>";
+        fila = 0;
+        columna = 0;
+        f0 = n - 1;
+        c0 = n - 1;
         for (arr of aPuzzle) {
             sHtml += "<tr>";
             for (value of arr) {
-                sHtml += `<td><img src="imagenes/n${value}.gif"></td>`;
+                sHtml += `<td><img id='imBola${fila}${columna}' src="imagenes/n${value}.gif" onClick="Cambiar(${fila},${columna})"></td>`;
+                columna++
             }
             sHtml += "</tr>";
+             fila++; columna = 0;
         }
         sHtml += "</table>";
         document.write(sHtml);
+
+        function Cambiar(fila, columna) {
+            if (
+                (columna == c0 && (fila + 1 == f0 || fila - 1 == f0)) ||
+                (fila == f0 && (columna + 1 == c0 || columna - 1 == c0))
+            ) {
+                alert(`${fila}, ${columna} Posible`)
+            } else {
+                alert(`${fila}, ${columna} Imposible`)
+            }
+
+
+
+        }
     </script>
 </body>
 
