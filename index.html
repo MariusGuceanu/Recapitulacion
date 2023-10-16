@@ -10,7 +10,8 @@
 <body>
     <script src="http://185.60.40.210/dwc/Juegos.js"></script>
     <script>
-        const n = 3;
+        const n = 3
+    ;
         const aPuzzle = Aleatorio(n);
         let sHtml = "";
         sHtml += "<table>";
@@ -25,7 +26,7 @@
                 columna++
             }
             sHtml += "</tr>";
-             fila++; columna = 0;
+            fila++; columna = 0;
         }
         sHtml += "</table>";
         document.write(sHtml);
@@ -35,9 +36,17 @@
                 (columna == c0 && (fila + 1 == f0 || fila - 1 == f0)) ||
                 (fila == f0 && (columna + 1 == c0 || columna - 1 == c0))
             ) {
-                alert(`${fila}, ${columna} Posible`)
+                [aPuzzle[fila][columna], aPuzzle[f0][c0]] = [aPuzzle[f0][c0], aPuzzle[fila][columna]];
+
+                const img1 = document.getElementById(`imBola${fila}${columna}`);
+                const img2 = document.getElementById(`imBola${f0}${c0}`);
+                const imgAux = img1.src;
+                img1.src = img2.src;
+                img2.src = imgAux;
+                f0 = fila;
+                c0 = columna;
             } else {
-                alert(`${fila}, ${columna} Imposible`)
+                
             }
 
 
