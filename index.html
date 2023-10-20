@@ -10,8 +10,9 @@
 <body>
     <script src="http://185.60.40.210/dwc/Juegos.js"></script>
     <script>
-        const n = 3
-    ;
+        const n = 2
+
+            ;
         const aPuzzle = Aleatorio(n);
         let sHtml = "";
         sHtml += "<table>";
@@ -27,6 +28,8 @@
             }
             sHtml += "</tr>";
             fila++; columna = 0;
+
+
         }
         sHtml += "</table>";
         document.write(sHtml);
@@ -45,9 +48,15 @@
                 img2.src = imgAux;
                 f0 = fila;
                 c0 = columna;
-            } else {
-                
+
+                if (Array.from({ length: n * n - 1 }, (x, i) => i + 1).join(",") + ",0" == aPuzzle.flat()
+                ) {
+                    alert("victoria")
+
+                }
+
             }
+
 
 
 
